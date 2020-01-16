@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+  </head>
+
+  <body>
+    <h3>Flatten An Array</h3>
+    <div id ="output"></div>
+    
+    
+    <script>
+      // debugger;
+    //take user input  
+      function user_input(){
+        arr1 = [1, [2], [3, [[4]]],[5,6]];
+        arr2 = ([1, [2], [3, [[4]]],[5,6]], true);
+        flatten_arr( arr1 );
+        // flatten_arr( arr2 );
+      }//end function user_input
+      
+      var result = [] ;
+      
+      //perform the flatten operation
+      function flatten_arr(arr) {
+        
+        //check isArray on arr
+        if( Array.isArray(arr) ) {
+          console.log( (arr) );//Array.isArray
+          for( let ndx = 0; ndx < arr.length; ndx++) {
+            if( Array.isArray(arr[ndx]) ) {
+                flatten_arr( arr[ndx] );
+                // console.log("sub array");
+                // console.log(arr[ndx]);
+              } 
+              else {
+                result.push(arr);
+                return;
+              }
+          }
+        }// else {
+        //   result.push(arr);console.log(result);
+        // }
+        // console.log(result);
+        // return;
+        
+      }//end function flatten_arr
+      user_input();
+    </script>
+  </body>
+
+</html> 
